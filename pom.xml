@@ -10,6 +10,7 @@
     <modules>
         <module>java-core</module>
         <module>spring-boot-swagger</module>
+        <module>spring-boot-mvc</module>
     </modules>
     <packaging>pom</packaging>
 
