@@ -11,6 +11,7 @@
         <module>java-core</module>
         <module>spring-boot-swagger</module>
         <module>spring-boot-mvc</module>
+        <module>spring-boot-camel</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -29,7 +30,7 @@
         <lombok.version>1.18.2</lombok.version>
         <hikariCP.version>3.1.0</hikariCP.version>
         <postgresql.version>42.2.2</postgresql.version>
-        <spring.boot.version>2.0.5.RELEASE</spring.boot.version>
+        <spring.boot.version>2.0.6.RELEASE</spring.boot.version>
     </properties>
 
     <dependencyManagement>
