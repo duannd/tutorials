@@ -1,7 +1,15 @@
 package com.duannd.core.models;
 
 /**
- * Created By duan.nd@senseinfosys.com at 11/21/2018 10:51 AM
+ * Created By ngdduan@gmail.com at 11/21/2018 10:51 AM
  */
-public class UnisexualAnimals {
+public interface UnisexualAnimals extends Animals {
+
+    @Override
+    default String reproductionBy() {
+        return "mating";
+    }
+
+    String birth();
+
 }

@@ -1,7 +1,16 @@
 package com.duannd.core.models;
 
 /**
- * Created By duan.nd@senseinfosys.com at 11/21/2018 10:36 AM
+ * Created By ngdduan@gmail.com at 11/21/2018 10:36 AM
  */
-public class Animals {
+public interface Animals {
+
+    String sound();
+
+    String habitation();
+
+    int noOfLegs();
+
+    String reproductionBy();
+
 }
