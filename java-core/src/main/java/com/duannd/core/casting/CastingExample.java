@@ -6,7 +6,8 @@ package com.duannd.core.casting;
 public class CastingExample {
 
     public static void main(String args[]) {
-
+        var a = "Java 11 test";
+        System.out.println(a);
     }
 
 }
