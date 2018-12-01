@@ -13,6 +13,8 @@ public class Main {
         var a = Integer.valueOf(1);
         if (a != null)
             System.out.println(a);
+
+        System.out.println("OK, finish add jdk11 to project");
     }
 
 }
