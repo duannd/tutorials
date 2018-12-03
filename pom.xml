@@ -14,6 +14,7 @@
         <module>spring-boot-camel</module>
         <module>java11</module>
         <module>java8</module>
+        <module>spring-boot-caching</module>
     </modules>
     <packaging>pom</packaging>
 
