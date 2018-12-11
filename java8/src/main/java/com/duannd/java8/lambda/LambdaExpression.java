@@ -5,7 +5,7 @@ package com.duannd.java8.lambda;
  */
 public class LambdaExpression {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         // Lambda with functionInterface
         functionalInterface();
     }
