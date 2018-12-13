@@ -17,6 +17,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.duannd</groupId>
+            <artifactId>java-core</artifactId>
+            <version>1.0</version>
+        </dependency>
         <!-- Utils Lib -->
         <dependency>
             <groupId>org.projectlombok</groupId>
