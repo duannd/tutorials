@@ -15,7 +15,9 @@
         <module>java11</module>
         <module>java8</module>
         <module>spring-boot-caching</module>
+        <module>common-model</module>
     </modules>
+
     <packaging>pom</packaging>
 
     <properties>
@@ -24,7 +26,7 @@
         <lombok.version>1.18.2</lombok.version>
         <hikariCP.version>3.1.0</hikariCP.version>
         <postgresql.version>42.2.2</postgresql.version>
-        <spring.boot.version>2.1.0.RELEASE</spring.boot.version>
+        <spring.boot.version>2.1.1.RELEASE</spring.boot.version>
         <springfox-swagger.version>2.9.2</springfox-swagger.version>
     </properties>
 
@@ -67,6 +69,12 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${springfox-swagger.version}</version>
+            </dependency>
+            <!-- Internal dependencies -->
+            <dependency>
+                <groupId>com.duannd</groupId>
+                <artifactId>common-model</artifactId>
+                <version>1.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
