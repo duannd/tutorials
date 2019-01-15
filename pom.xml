@@ -16,6 +16,7 @@
         <module>java8</module>
         <module>spring-boot-caching</module>
         <module>common-model</module>
+        <module>spring-boot-messaging</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -113,16 +114,6 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-        <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <release>${java.version}</release>
-                </configuration>
-            </plugin>
-        </plugins>
     </build>
 
 </project>
