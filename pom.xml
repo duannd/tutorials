@@ -8,6 +8,7 @@
     <artifactId>tutorials</artifactId>
     <version>1.0</version>
     <modules>
+        <module>common-model</module>
         <module>java-core</module>
         <module>spring-boot-swagger</module>
         <module>spring-boot-mvc</module>
@@ -15,7 +16,6 @@
         <module>java11</module>
         <module>java8</module>
         <module>spring-boot-caching</module>
-        <module>common-model</module>
         <module>spring-boot-messaging</module>
     </modules>
 
@@ -24,10 +24,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>11</java.version>
-        <lombok.version>1.18.2</lombok.version>
-        <hikariCP.version>3.1.0</hikariCP.version>
-        <postgresql.version>42.2.2</postgresql.version>
-        <spring.boot.version>2.1.1.RELEASE</spring.boot.version>
+        <spring.boot.version>2.1.2.RELEASE</spring.boot.version>
         <springfox-swagger.version>2.9.2</springfox-swagger.version>
     </properties>
 
@@ -41,24 +38,6 @@
                 <version>${spring.boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-            <!-- Datasource JDBC -->
-            <dependency>
-                <groupId>com.zaxxer</groupId>
-                <artifactId>HikariCP</artifactId>
-                <version>${hikariCP.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.postgresql</groupId>
-                <artifactId>postgresql</artifactId>
-                <version>${postgresql.version}</version>
-            </dependency>
-            <!-- Utils lib -->
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-                <scope>provided</scope>
             </dependency>
             <!-- SpringFox Swagger -->
             <dependency>

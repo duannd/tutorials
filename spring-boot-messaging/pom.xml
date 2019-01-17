@@ -11,10 +11,6 @@
 
     <artifactId>spring-boot-messaging</artifactId>
 
-    <properties>
-        <apache.activemq.version>5.15.6</apache.activemq.version>
-    </properties>
-
     <dependencies>
         <!-- Spring Boot -->
         <dependency>
@@ -29,6 +25,10 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.messaginghub</groupId>
+            <artifactId>pooled-jms</artifactId>
         </dependency>
 
     </dependencies>
