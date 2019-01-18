@@ -17,6 +17,7 @@
         <module>java8</module>
         <module>spring-boot-caching</module>
         <module>spring-boot-messaging</module>
+        <module>data-structure-algorithms</module>
     </modules>
 
     <packaging>pom</packaging>
