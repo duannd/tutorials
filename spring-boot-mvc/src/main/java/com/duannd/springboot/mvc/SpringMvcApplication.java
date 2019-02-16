@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.DependsOn;
@@ -16,7 +17,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 public class SpringMvcApplication {
 
-    public static ApplicationContext applicationContext;
+    private static ApplicationContext applicationContext;
 
     public static void main(String[] args) {
         applicationContext = SpringApplication.run(SpringMvcApplication.class, args);
@@ -36,7 +37,7 @@ public class SpringMvcApplication {
      */
     private static void showBeans() {
         log.info("Beans count: {}", applicationContext.getBeanDefinitionCount());
-        // ((AnnotationConfigServletWebServerApplicationContext) applicationContext).close();
+         ((AnnotationConfigServletWebServerApplicationContext) applicationContext).close();
     }
 
     @Bean

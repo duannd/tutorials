@@ -1,11 +1,12 @@
 package com.duannd.springboot.mvc.beans;
 
-import com.duannd.springboot.mvc.scopes.PrototypeScope;
-import com.duannd.springboot.mvc.scopes.RequestScope;
-import com.duannd.springboot.mvc.scopes.Singleton;
+import com.duannd.springboot.mvc.scopes.PrototypeBean;
+import com.duannd.springboot.mvc.scopes.RequestScopeBean;
+import com.duannd.springboot.mvc.scopes.SingletonBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
+import org.springframework.web.context.annotation.RequestScope;
 
 /**
  * Created By ngdduan@gmail.com at 2019-02-08 09:42
@@ -13,22 +14,22 @@ import org.springframework.context.annotation.Scope;
 @Configuration
 public class BeanScopes {
 
-    @Bean
+    @Bean(name = "singleton")
     @Scope("singleton")
-    public Singleton singleton() {
-        return new Singleton();
+    public SingletonBean singleton() {
+        return new SingletonBean();
     }
 
     @Bean(name = "prototypeScope")
     @Scope("prototype")
-    public PrototypeScope prototypeScope() {
-        return new PrototypeScope();
+    public PrototypeBean prototypeScope() {
+        return new PrototypeBean();
     }
 
     @Bean(name = "requestScope")
-    @org.springframework.web.context.annotation.RequestScope
-    public RequestScope requestScope() {
-        return new RequestScope();
+    @RequestScope
+    public RequestScopeBean requestScope() {
+        return new RequestScopeBean();
     }
 
 }
