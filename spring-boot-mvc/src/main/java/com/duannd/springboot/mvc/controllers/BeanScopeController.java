@@ -1,5 +1,6 @@
 package com.duannd.springboot.mvc.controllers;
 
+import com.duannd.springboot.mvc.SpringMvcApplication;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +26,16 @@ public class BeanScopeController {
 
     @GetMapping
     public ObjectNode showScopes() {
-        return objectMapper.createObjectNode();
+        var objectNode = objectMapper.createObjectNode();
+        var prototypeScope1 = SpringMvcApplication.applicationContext.getBean("prototypeScope");
+        var prototypeScope2 = SpringMvcApplication.applicationContext.getBean("prototypeScope");
+        objectNode.put("prototypeScope1", prototypeScope1.toString());
+        objectNode.put("prototypeScope2", prototypeScope2.toString());
+        var requestScope1 = SpringMvcApplication.applicationContext.getBean("requestScope");
+        var requestScope2 = SpringMvcApplication.applicationContext.getBean("requestScope");
+        objectNode.put("requestScope1", requestScope1.toString());
+        objectNode.put("requestScope2", requestScope2.toString());
+        return objectNode;
     }
 
 }

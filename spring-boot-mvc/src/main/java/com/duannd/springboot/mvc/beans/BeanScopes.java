@@ -1,5 +1,7 @@
 package com.duannd.springboot.mvc.beans;
 
+import com.duannd.springboot.mvc.scopes.PrototypeScope;
+import com.duannd.springboot.mvc.scopes.RequestScope;
 import com.duannd.springboot.mvc.scopes.Singleton;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +17,18 @@ public class BeanScopes {
     @Scope("singleton")
     public Singleton singleton() {
         return new Singleton();
+    }
+
+    @Bean(name = "prototypeScope")
+    @Scope("prototype")
+    public PrototypeScope prototypeScope() {
+        return new PrototypeScope();
+    }
+
+    @Bean(name = "requestScope")
+    @org.springframework.web.context.annotation.RequestScope
+    public RequestScope requestScope() {
+        return new RequestScope();
     }
 
 }

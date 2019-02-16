@@ -16,7 +16,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 public class SpringMvcApplication {
 
-    private static ApplicationContext applicationContext;
+    public static ApplicationContext applicationContext;
 
     public static void main(String[] args) {
         applicationContext = SpringApplication.run(SpringMvcApplication.class, args);
@@ -36,9 +36,7 @@ public class SpringMvcApplication {
      */
     private static void showBeans() {
         log.info("Beans count: {}", applicationContext.getBeanDefinitionCount());
-//        for (var beanName : applicationContext.getBeanDefinitionNames()) {
-//            log.warn("Bean Name - {}", beanName);
-//        }
+        // ((AnnotationConfigServletWebServerApplicationContext) applicationContext).close();
     }
 
     @Bean
