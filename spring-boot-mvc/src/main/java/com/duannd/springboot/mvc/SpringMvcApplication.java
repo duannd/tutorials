@@ -37,7 +37,6 @@ public class SpringMvcApplication {
      */
     private static void showBeans() {
         log.info("Beans count: {}", applicationContext.getBeanDefinitionCount());
-         ((AnnotationConfigServletWebServerApplicationContext) applicationContext).close();
     }
 
     @Bean
