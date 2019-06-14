@@ -109,7 +109,7 @@ public class StudentController {
     }
 
     @PostMapping(value = "consumes-produces", consumes = "application/vnd.api.v2+json",
-            produces = MediaType.TEXT_PLAIN_VALUE)
+            produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity consumesDiffProducesJson(@RequestBody CreateStudentRequest request,
                                                    @RequestParam(required = false) String other) throws JsonProcessingException {
         var student = new CreateStudentResponse(request.getName());
