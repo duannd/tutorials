@@ -86,8 +86,8 @@ public class StudentController {
     public ResponseEntity consumesDiffProduces(@RequestBody CreateStudentRequest request) throws JsonProcessingException {
         var student = new CreateStudentResponse(request.getName());
         CACHE_RESPONSE.put(student.getId(), student);
-        // var studentString = this.objectMapper.writeValueAsString(student);
-        return ResponseEntity.status(HttpStatus.CREATED).body(student);
+        var studentString = this.objectMapper.writeValueAsString(student);
+        return ResponseEntity.status(HttpStatus.CREATED).body(studentString);
     }
 
     @PostMapping(value = "consumes-produces", consumes = "application/vnd.api.v2+json",
@@ -96,13 +96,13 @@ public class StudentController {
                                                @RequestParam(required = false) String other) throws JsonProcessingException {
         var student = new CreateStudentResponse(request.getName());
         CACHE_RESPONSE.put(student.getId(), student);
-        // var studentString = this.objectMapper.writeValueAsString(student);
-        return ResponseEntity.status(HttpStatus.CREATED).body(student);
+        var studentString = this.objectMapper.writeValueAsString(student);
+        return ResponseEntity.status(HttpStatus.CREATED).body(studentString);
     }
 
     @PostMapping(value = "consumes-produces", consumes = "application/json",
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity consumesDiffProducesJson(@RequestBody CreateStudentRequest request) throws JsonProcessingException {
+    public ResponseEntity consumesDiffProducesJson(@RequestBody CreateStudentRequest request) {
         var student = new CreateStudentResponse(request.getName());
         CACHE_RESPONSE.put(student.getId(), student);
         return ResponseEntity.status(HttpStatus.CREATED).body(student);
@@ -111,10 +111,9 @@ public class StudentController {
     @PostMapping(value = "consumes-produces", consumes = "application/vnd.api.v2+json",
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity consumesDiffProducesJson(@RequestBody CreateStudentRequest request,
-                                                   @RequestParam(required = false) String other) throws JsonProcessingException {
+                                                   @RequestParam(required = false) String other) {
         var student = new CreateStudentResponse(request.getName());
         CACHE_RESPONSE.put(student.getId(), student);
-        // var studentString = this.objectMapper.writeValueAsString(student);
         return ResponseEntity.status(HttpStatus.CREATED).body(student);
     }
 
