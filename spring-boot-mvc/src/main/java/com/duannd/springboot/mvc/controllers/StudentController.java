@@ -82,35 +82,33 @@ public class StudentController {
      * @return a Student but it is string.
      */
     @PostMapping(value = "consumes-produces", consumes = "application/json")
-    public ResponseEntity consumesDiffProduces(@RequestBody CreateStudentRequest request) throws JsonProcessingException {
+    public String consumesDiffProduces(@RequestBody CreateStudentRequest request) throws JsonProcessingException {
         var student = new CreateStudentResponse(request.getName());
         CACHE_RESPONSE.put(student.getId(), student);
-        var studentString = this.objectMapper.writeValueAsString(student);
-        return ResponseEntity.status(HttpStatus.CREATED).body(studentString);
+        return this.objectMapper.writeValueAsString(student);
     }
 
     @PostMapping(value = "consumes-produces", consumes = "application/vnd.api.v2+json")
-    public ResponseEntity consumesDiffProduces(@RequestBody CreateStudentRequest request,
+    public String consumesDiffProduces(@RequestBody CreateStudentRequest request,
                                                @RequestParam(required = false) String other) throws JsonProcessingException {
         var student = new CreateStudentResponse(request.getName());
         CACHE_RESPONSE.put(student.getId(), student);
-        var studentString = this.objectMapper.writeValueAsString(student);
-        return ResponseEntity.status(HttpStatus.CREATED).body(studentString);
+        return this.objectMapper.writeValueAsString(student);
     }
 
-    @PostMapping(value = "consumes-produces", consumes = "application/json")
-    public ResponseEntity consumesDiffProducesJson(@RequestBody CreateStudentRequest request) {
+    @PostMapping(value = "consumes-produces-json", consumes = "application/json")
+    public CreateStudentResponse consumesDiffProducesJson(@RequestBody CreateStudentRequest request) {
         var student = new CreateStudentResponse(request.getName());
         CACHE_RESPONSE.put(student.getId(), student);
-        return ResponseEntity.status(HttpStatus.CREATED).body(student);
+        return student;
     }
 
-    @PostMapping(value = "consumes-produces", consumes = "application/vnd.api.v2+json")
-    public ResponseEntity consumesDiffProducesJson(@RequestBody CreateStudentRequest request,
+    @PostMapping(value = "consumes-produces-json", consumes = "application/vnd.api.v2+json")
+    public CreateStudentResponse consumesDiffProducesJson(@RequestBody CreateStudentRequest request,
                                                    @RequestParam(required = false) String other) {
         var student = new CreateStudentResponse(request.getName());
         CACHE_RESPONSE.put(student.getId(), student);
-        return ResponseEntity.status(HttpStatus.CREATED).body(student);
+        return student;
     }
 
 }
