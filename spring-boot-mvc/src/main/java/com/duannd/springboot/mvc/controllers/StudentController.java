@@ -81,7 +81,7 @@ public class StudentController {
      * @param request is Student JsonObject
      * @return a Student but it is string.
      */
-    @PostMapping(value = "consumes-produces", consumes = MediaType.APPLICATION_JSON_VALUE,
+    @PostMapping(value = "consumes-produces", consumes = "application/json",
             produces = MediaType.TEXT_PLAIN_VALUE)
     public ResponseEntity consumesDiffProduces(@RequestBody CreateStudentRequest request) throws JsonProcessingException {
         var student = new CreateStudentResponse(request.getName());
@@ -100,7 +100,7 @@ public class StudentController {
         return ResponseEntity.status(HttpStatus.CREATED).body(student);
     }
 
-    @PostMapping(value = "consumes-produces", consumes = MediaType.APPLICATION_JSON_VALUE,
+    @PostMapping(value = "consumes-produces", consumes = "application/json",
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity consumesDiffProducesJson(@RequestBody CreateStudentRequest request) throws JsonProcessingException {
         var student = new CreateStudentResponse(request.getName());
