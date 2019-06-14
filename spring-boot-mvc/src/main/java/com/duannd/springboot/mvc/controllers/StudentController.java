@@ -100,4 +100,22 @@ public class StudentController {
         return ResponseEntity.status(HttpStatus.CREATED).body(student);
     }
 
+    @PostMapping(value = "consumes-produces", consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity consumesDiffProducesJson(@RequestBody CreateStudentRequest request) throws JsonProcessingException {
+        var student = new CreateStudentResponse(request.getName());
+        CACHE_RESPONSE.put(student.getId(), student);
+        return ResponseEntity.status(HttpStatus.CREATED).body(student);
+    }
+
+    @PostMapping(value = "consumes-produces", consumes = "application/vnd.api.v2+json",
+            produces = MediaType.TEXT_PLAIN_VALUE)
+    public ResponseEntity consumesDiffProducesJson(@RequestBody CreateStudentRequest request,
+                                                   @RequestParam(required = false) String other) throws JsonProcessingException {
+        var student = new CreateStudentResponse(request.getName());
+        CACHE_RESPONSE.put(student.getId(), student);
+        // var studentString = this.objectMapper.writeValueAsString(student);
+        return ResponseEntity.status(HttpStatus.CREATED).body(student);
+    }
+
 }
