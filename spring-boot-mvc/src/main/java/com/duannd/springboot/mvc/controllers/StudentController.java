@@ -85,15 +85,15 @@ public class StudentController {
     public String consumesDiffProduces(@RequestBody CreateStudentRequest request) throws JsonProcessingException {
         var student = new CreateStudentResponse(request.getName());
         CACHE_RESPONSE.put(student.getId(), student);
-        return this.objectMapper.writeValueAsString(student);
+        return this.objectMapper.writeValueAsString(student) + "Hello world";
     }
 
     @PostMapping(value = "consumes-produces", consumes = "application/vnd.api.v2+json")
     public String consumesDiffProduces(@RequestBody CreateStudentRequest request,
-                                               @RequestParam(required = false) String other) throws JsonProcessingException {
+                                       @RequestParam(required = false) String other) throws JsonProcessingException {
         var student = new CreateStudentResponse(request.getName());
         CACHE_RESPONSE.put(student.getId(), student);
-        return this.objectMapper.writeValueAsString(student);
+        return this.objectMapper.writeValueAsString(student) + "Hello world V2: other = " + other;
     }
 
     @PostMapping(value = "consumes-produces-json", consumes = "application/json")
@@ -105,8 +105,8 @@ public class StudentController {
 
     @PostMapping(value = "consumes-produces-json", consumes = "application/vnd.api.v2+json")
     public CreateStudentResponse consumesDiffProducesJson(@RequestBody CreateStudentRequest request,
-                                                   @RequestParam(required = false) String other) {
-        var student = new CreateStudentResponse(request.getName());
+                                                          @RequestParam(required = false) String other) {
+        var student = new CreateStudentResponse(request.getName() + ".V2." + (other == null ? "" : other));
         CACHE_RESPONSE.put(student.getId(), student);
         return student;
     }
