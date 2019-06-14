@@ -86,8 +86,8 @@ public class StudentController {
     public ResponseEntity consumesDiffProduces(@RequestBody CreateStudentRequest request) throws JsonProcessingException {
         var student = new CreateStudentResponse(request.getName());
         CACHE_RESPONSE.put(student.getId(), student);
-        var studentString = this.objectMapper.writeValueAsString(student);
-        return ResponseEntity.status(HttpStatus.CREATED).body(studentString);
+        // var studentString = this.objectMapper.writeValueAsString(student);
+        return ResponseEntity.status(HttpStatus.CREATED).body(student);
     }
 
 }
