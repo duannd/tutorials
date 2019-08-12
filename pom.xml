@@ -6,7 +6,7 @@
 
     <groupId>com.duannd</groupId>
     <artifactId>tutorials</artifactId>
-    <version>1.0</version>
+    <version>0.0.1</version>
     <modules>
         <module>common-model</module>
         <module>java-core</module>
@@ -27,7 +27,7 @@
         <java.version>11</java.version>
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.source>11</maven.compiler.source>
-        <spring.boot.version>2.1.5.RELEASE</spring.boot.version>
+        <spring.boot.version>2.1.6.RELEASE</spring.boot.version>
         <springfox-swagger.version>2.9.2</springfox-swagger.version>
     </properties>
 
