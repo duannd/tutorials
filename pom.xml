@@ -8,7 +8,6 @@
     <artifactId>tutorials</artifactId>
     <version>1.0</version>
     <modules>
-        <module>common-model</module>
         <module>java-core</module>
         <module>spring-boot-swagger</module>
         <module>spring-boot-mvc</module>
@@ -17,7 +16,7 @@
         <module>java8</module>
         <module>spring-boot-caching</module>
         <module>spring-boot-messaging</module>
-        <module>data-structure-algorithms</module>
+        <module>java12</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -27,7 +26,7 @@
         <java.version>11</java.version>
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.source>11</maven.compiler.source>
-        <spring.boot.version>2.1.5.RELEASE</spring.boot.version>
+        <spring.boot.version>2.1.6.RELEASE</spring.boot.version>
         <springfox-swagger.version>2.9.2</springfox-swagger.version>
     </properties>
 
@@ -52,12 +51,6 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${springfox-swagger.version}</version>
-            </dependency>
-            <!-- Internal dependencies -->
-            <dependency>
-                <groupId>com.duannd</groupId>
-                <artifactId>common-model</artifactId>
-                <version>1.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
