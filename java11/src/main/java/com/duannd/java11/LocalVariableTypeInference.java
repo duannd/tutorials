@@ -1,4 +1,4 @@
-package com.duannd.java11.features;
+package com.duannd.java11;
 
 import java.util.ArrayList;
 import java.util.Collections;
