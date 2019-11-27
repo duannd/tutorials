@@ -17,6 +17,7 @@
         <module>spring-boot-caching</module>
         <module>spring-boot-messaging</module>
         <module>java12</module>
+        <module>java9</module>
     </modules>
 
     <packaging>pom</packaging>
