@@ -2,6 +2,7 @@ package com.duannd.java11;
 
 import lombok.*;
 
+import javax.validation.constraints.NotNull;
 import java.util.function.Function;
 
 public class LocalVariableSyntaxMain {
@@ -19,7 +20,7 @@ public class LocalVariableSyntaxMain {
     }
 
     private static void getFullName() {
-        Function<String, Student> function = (@NonNull var firstName) -> {
+        Function<String, Student> function = (@NotNull var firstName) -> {
             String fullName = "Hello, " + firstName;
             return new Student(fullName);
         };
@@ -34,6 +35,7 @@ public class LocalVariableSyntaxMain {
     @ToString
     private static class Student {
 
+        @NotNull
         private String fullName;
 
     }
