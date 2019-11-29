@@ -7,7 +7,9 @@ public class Java8Utils {
     }
 
     public static void printHeader(String header) {
-        System.out.println(String.format("----- %s -----", header));
+        System.out.println("---------------------------------------------------------------------------");
+        System.out.println("---------------------------------------------------------------------------");
+        System.out.println(String.format("-------------------- %s --------------------", header));
     }
 
 }
