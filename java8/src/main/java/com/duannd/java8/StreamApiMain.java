@@ -43,19 +43,35 @@ public class StreamApiMain {
     }
 
     private static void terminalOperations() {
-        log.info("Terminal Operations start............");
+        log.info("Terminal Operations :: reduce............");
+        Optional<Integer> optionalInteger = Stream.of(1, 2, 3, 4, 5).reduce((i, j) -> i * j);
+        optionalInteger.ifPresent(System.out::println);
+        Integer sum = Stream.of(1, 2, 3, 4, 5).reduce(5, (integer, integer2) -> integer * integer2);
+        log.info("Sum after reduce: {}", sum);
+        String u = Stream.of(1, 2, 3, 4, 5).reduce("0", (u1, integer) -> u1 + " " + integer, (s, s2) -> " OK ");
+        log.info("Sum after reduce 3 params: {}", u);
+        Integer total = Stream.of(2, 3, 4, 5, 6).reduce(6, (i1, i2) -> {
+            log.info("BiFunction i1: {}, i2: {}", i1, i2);
+            return i1 + i2;
+        }, (i1, i2) -> {
+            log.info("BinaryFunction i1: {}, i2: {}", i1, i2);
+            return i1 + i2;
+        });
+        log.info("total after reduce: {}", total);
+        Optional<String> myName = NAMES.stream().filter(name -> name.startsWith("D")).findFirst();
+        log.info("My Name: {}", myName.orElse(null));
     }
 
     private static void intermediateOperations() {
         List<String> names = NAMES.stream()
-            .filter(s -> s.contains("a"))
-            .map(String::toUpperCase)
-            .sorted(Comparator.naturalOrder())
-            .collect(Collectors.toList());
+                .filter(s -> s.contains("a"))
+                .map(String::toUpperCase)
+                .sorted(Comparator.naturalOrder())
+                .collect(Collectors.toList());
         System.out.println(names);
         Stream<List<String>> namesOriginalList = Stream.of(Arrays.asList("Pankaj", "Duan"),
-            Arrays.asList("David", "Lisa"),
-            Arrays.asList("Amit", "Nguyen"));
+                Arrays.asList("David", "Lisa"),
+                Arrays.asList("Amit", "Nguyen"));
         Stream<String> concatStream = namesOriginalList.flatMap(Collection::stream);
         concatStream.forEach(System.out::println);
     }
@@ -90,11 +106,11 @@ public class StreamApiMain {
         Predicate<People> isLegalFullName = people -> people.fullName != null && !people.fullName.isEmpty();
         BiPredicate<People, String> biPredicate = (people, s) -> s != null && s.equalsIgnoreCase(people.fullName);
         List<People> isLegalPeople = NAMES
-            .stream()
-            .map(People::new)
-            .filter(isLegalFullName)
-            .filter(people -> biPredicate.test(people, "duan nguyen"))
-            .collect(Collectors.toList());
+                .stream()
+                .map(People::new)
+                .filter(isLegalFullName)
+                .filter(people -> biPredicate.test(people, "duan nguyen"))
+                .collect(Collectors.toList());
         System.out.println(isLegalPeople);
     }
 
