@@ -24,6 +24,10 @@
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.duannd</groupId>
+            <artifactId>logback</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
