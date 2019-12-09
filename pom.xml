@@ -19,6 +19,7 @@
         <module>spring-boot-messaging</module>
 <!--        <module>java12</module>-->
         <module>java9</module>
+        <module>design-patterns</module>
     </modules>
 
     <packaging>pom</packaging>
