@@ -19,7 +19,7 @@ public class ThreadSafeSingleton {
                     log.info("Initial Thread Safe Singleton");
                     instance = new ThreadSafeSingleton();
                     try {
-                        Thread.sleep(5000);
+                        Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

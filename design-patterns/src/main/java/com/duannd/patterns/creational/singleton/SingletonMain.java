@@ -1,25 +1,80 @@
 package com.duannd.patterns.creational.singleton;
 
-import com.duannd.patterns.creational.singleton.models.EagerInitializedSingleton;
-import com.duannd.patterns.creational.singleton.models.LazyInitializedSingleton;
-import com.duannd.patterns.creational.singleton.models.StaticBlockInitializedSingleton;
-import com.duannd.patterns.creational.singleton.models.ThreadSafeSingleton;
+import com.duannd.patterns.creational.singleton.models.*;
 import com.duannd.patterns.utils.DesignPatternUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.io.*;
+import java.lang.reflect.Constructor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class SingletonMain {
 
-    public static void main(String[] args) {
-        DesignPatternUtils.printHeader("Eager Initialization");
+    private static final Logger log = LoggerFactory.getLogger(SingletonMain.class);
+
+    public static void main(String[] args) throws Exception {
+        log.info("Singleton Tests running...............................................");
+        DesignPatternUtils.printHeader("1. Eager Initialization");
         eagerInitialization();
-        DesignPatternUtils.printHeader("Static Block Initialization");
+        DesignPatternUtils.printHeader("2. Static Block Initialization");
         staticBlockInitialization();
-        DesignPatternUtils.printHeader("Lazy Initialization");
+        DesignPatternUtils.printHeader("3. Lazy Initialization");
         lazyInitialization();
-        DesignPatternUtils.printHeader("Thread Safe Singleton");
+        DesignPatternUtils.printHeader("4. Thread Safe Singleton");
         threadSafeSingleton();
+        DesignPatternUtils.printHeader("5. Bill Pugh Singleton");
+        billPughSingleton();
+        DesignPatternUtils.printHeader("6. Using Reflection to destroy Singleton Pattern");
+        destroySingletonPattern();
+        DesignPatternUtils.printHeader("7. Enum Singleton");
+        enumSingleton();
+        DesignPatternUtils.printHeader("8. Serialization and Singleton");
+        serializationAndSingleton();
+    }
+
+    private static void serializationAndSingleton() throws IOException, ClassNotFoundException {
+        SerializedSingleton instanceOne = SerializedSingleton.getInstance();
+        ObjectOutput objectOutput = new ObjectOutputStream(new FileOutputStream("filename.ser"));
+        objectOutput.writeObject(instanceOne);
+        objectOutput.close();
+        //deserialize from file to object
+        ObjectInput in = new ObjectInputStream(new FileInputStream("filename.ser"));
+        SerializedSingleton instanceTwo = (SerializedSingleton) in.readObject();
+        in.close();
+
+        System.out.println("instanceOne hashCode=" + instanceOne.hashCode());
+        System.out.println("instanceTwo hashCode=" + instanceTwo.hashCode());
+    }
+
+    private static void enumSingleton() {
+        EnumSingleton.log();
+    }
+
+    private static void destroySingletonPattern() throws Exception {
+        EagerInitializedSingleton staticInstance = EagerInitializedSingleton.getInstance();
+        // get no args constructor
+        Constructor<EagerInitializedSingleton> constructor = EagerInitializedSingleton.class.getDeclaredConstructor();
+        constructor.setAccessible(true);
+        EagerInitializedSingleton reflectionInstance = constructor.newInstance();
+        System.out.println("staticInstance == reflectionInstance ? " + (staticInstance.hashCode() == reflectionInstance.hashCode()));
+    }
+
+    private static void billPughSingleton() {
+        int maxThread = 30;
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
+        for (int i = 0; i < maxThread; i++) {
+            executorService.execute(() -> {
+                BillPughSingleton.getInstance().log();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
+        }
+        executorService.shutdown();
     }
 
     private static void threadSafeSingleton() {
