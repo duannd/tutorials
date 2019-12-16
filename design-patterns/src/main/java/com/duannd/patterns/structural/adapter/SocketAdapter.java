@@ -1,7 +1,5 @@
 package com.duannd.patterns.structural.adapter;
 
-import com.duannd.patterns.structural.models.Volt;
-
 public interface SocketAdapter {
 
     Volt get120Volt();

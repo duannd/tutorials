@@ -1,4 +1,4 @@
-package com.duannd.patterns.structural.models;
+package com.duannd.patterns.structural.adapter;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

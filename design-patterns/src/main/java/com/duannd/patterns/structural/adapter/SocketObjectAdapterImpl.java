@@ -1,8 +1,5 @@
 package com.duannd.patterns.structural.adapter;
 
-import com.duannd.patterns.structural.models.Socket;
-import com.duannd.patterns.structural.models.Volt;
-
 public class SocketObjectAdapterImpl implements SocketAdapter {
 
     //Using Composition for adapter pattern
